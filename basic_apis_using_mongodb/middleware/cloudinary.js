@@ -11,14 +11,13 @@ cloudinary.config({
     api_secret : process.env.CLOUDINARY_SECRET_KEY
 })
 
-const store = new CloudinaryStorage({
+const storage = new CloudinaryStorage({
     cloudinary : cloudinary,
     params : {
         folder : "first_file_upload",
-        allowed_formats : ['jpg','jpeg','png']
+        allowed_formats : ["jpg","jpeg","png"]
     }
 })
-console.log(store)
-const upload = multer({ store })
 
+const upload = multer({ storage })
 module.exports = upload;
